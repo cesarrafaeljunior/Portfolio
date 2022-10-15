@@ -1,3 +1,5 @@
+import { RoutesMain } from "../Routes";
+
 export const App = () => {
-  return <div className="App"></div>;
+  return <RoutesMain />;
 };
