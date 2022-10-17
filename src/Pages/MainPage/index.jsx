@@ -18,15 +18,12 @@ export const MainPage = () => {
     handleRightClick,
     pauseAnimation,
     playAnimation,
+    hideClick,
     isPause,
-    backgroundState,
   } = useContext(CarouselContext);
 
   return (
-    <MainPageContainer
-      pauseAnimation={isPause}
-      backgroundState={backgroundState}
-    >
+    <MainPageContainer pauseAnimation={isPause}>
       <section className="Section__Header">
         <div className="Box__PersonalImage">
           <figure>
@@ -77,13 +74,23 @@ export const MainPage = () => {
             );
           })}
         </ul>
-        <button type="button" className="btnPrevious" onClick={handleLeftClick}>
-          <GrFormPrevious className="btnCarousel" />
-        </button>
-        <button type="button" className="btnNext" onClick={handleRightClick}>
-          <GrFormNext className="btnCarousel" />
-        </button>
-        {isPause == true ? (
+        {hideClick > 0 ? (
+          <button
+            type="button"
+            className="btnPrevious"
+            onClick={handleLeftClick}
+          >
+            <GrFormPrevious className="btnCarousel" />
+          </button>
+        ) : null}
+
+        {hideClick <= techs.length - 2 ? (
+          <button type="button" className="btnNext" onClick={handleRightClick}>
+            <GrFormNext className="btnCarousel" />
+          </button>
+        ) : null}
+
+        {isPause === true ? (
           <button type="button" className="btnControl" onClick={playAnimation}>
             <BsFillPlayCircleFill className="btnControl" />
           </button>

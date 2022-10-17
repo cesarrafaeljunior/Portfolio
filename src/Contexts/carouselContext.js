@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState, useRef } from "react";
+import { techs } from "../services/techs";
 export const CarouselContext = createContext({});
 
 export const CarouselProvider = ({ children }) => {
   const [isReloadCarousel, setIsReloadCarousel] = useState(false);
-  const [isPause, setIsPause] = useState(false);
+  const [maxContent, setMaxContent] = useState(0);
+  const [hideClick, sethideClickF] = useState(0);
+  const [isPause, setIsPause] = useState(true);
 
   const pauseAnimation = async () => {
     setIsPause(!isPause);
@@ -16,17 +19,29 @@ export const CarouselProvider = ({ children }) => {
     if (isPause) {
       return;
     }
-    setTimeout(() => {
+    setTimeout(async () => {
       const techWidth = carousel.current.offsetWidth;
+      setMaxContent(maxContent + techWidth);
 
-      if (carousel.current.scrollLeft === 2304) {
-        carousel.current.scrollLeft = 0;
+      if (maxContent > carousel.current.scrollLeft) {
+        carousel.current.scrollLeft -= techWidth;
+        if (hideClick > 0) {
+          sethideClickF(hideClick - 1);
+        }
         setIsReloadCarousel(!isReloadCarousel);
+        if (carousel.current.scrollLeft == 0) {
+          setMaxContent(0);
+          setIsReloadCarousel(!isReloadCarousel);
+        }
       } else {
         carousel.current.scrollLeft += techWidth;
-        setIsReloadCarousel(!isReloadCarousel);
+        if (hideClick < techs.length - 1) {
+          sethideClickF(hideClick + 1);
+        }
       }
-    }, 2000);
+
+      setIsReloadCarousel(!isReloadCarousel);
+    }, 1000);
   }, [isReloadCarousel, isPause]);
 
   const carousel = useRef(null);
@@ -35,19 +50,21 @@ export const CarouselProvider = ({ children }) => {
     e.preventDefault();
 
     const techWidth = carousel.current.offsetWidth;
+    carousel.current.scrollLeft -= techWidth;
 
-    carousel.current.scrollLeft === 0
-      ? (carousel.current.scrollLeft = 2590)
-      : (carousel.current.scrollLeft -= techWidth);
+    if (hideClick > 0) {
+      sethideClickF(hideClick - 1);
+    }
   };
 
   const handleRightClick = (e) => {
     e.preventDefault();
     const techWidth = carousel.current.offsetWidth;
+    carousel.current.scrollLeft += techWidth;
 
-    carousel.current.scrollLeft == 2304
-      ? (carousel.current.scrollLeft = 0)
-      : (carousel.current.scrollLeft += techWidth);
+    if (hideClick < techs.length) {
+      sethideClickF(hideClick + 1);
+    }
   };
 
   return (
@@ -58,6 +75,7 @@ export const CarouselProvider = ({ children }) => {
         handleRightClick,
         pauseAnimation,
         playAnimation,
+        hideClick,
         isPause,
       }}
     >
