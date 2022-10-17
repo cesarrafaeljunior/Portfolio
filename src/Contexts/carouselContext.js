@@ -3,6 +3,7 @@ export const CarouselContext = createContext({});
 
 export const CarouselProvider = ({ children }) => {
   const [isReloadCarousel, setIsReloadCarousel] = useState(false);
+  const [maxContent, setMaxContent] = useState(0);
   const [isPause, setIsPause] = useState(false);
 
   const pauseAnimation = async () => {
@@ -19,13 +20,9 @@ export const CarouselProvider = ({ children }) => {
     setTimeout(() => {
       const techWidth = carousel.current.offsetWidth;
 
-      if (carousel.current.scrollLeft === 2304) {
-        carousel.current.scrollLeft = 0;
-        setIsReloadCarousel(!isReloadCarousel);
-      } else {
-        carousel.current.scrollLeft += techWidth;
-        setIsReloadCarousel(!isReloadCarousel);
-      }
+      carousel.current.scrollLeft += techWidth;
+
+      setIsReloadCarousel(!isReloadCarousel);
     }, 2000);
   }, [isReloadCarousel, isPause]);
 
@@ -35,19 +32,13 @@ export const CarouselProvider = ({ children }) => {
     e.preventDefault();
 
     const techWidth = carousel.current.offsetWidth;
-
-    carousel.current.scrollLeft === 0
-      ? (carousel.current.scrollLeft = 2590)
-      : (carousel.current.scrollLeft -= techWidth);
+    carousel.current.scrollLeft -= techWidth;
   };
 
   const handleRightClick = (e) => {
     e.preventDefault();
     const techWidth = carousel.current.offsetWidth;
-
-    carousel.current.scrollLeft == 2304
-      ? (carousel.current.scrollLeft = 0)
-      : (carousel.current.scrollLeft += techWidth);
+    carousel.current.scrollLeft += techWidth;
   };
 
   return (
