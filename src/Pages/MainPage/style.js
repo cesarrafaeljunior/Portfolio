@@ -11,6 +11,19 @@ export const MainPageContainer = styled.div`
     justify-content: space-between;
 
     height: 149px;
+
+    @media (min-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  .Section__Main {
+    h2 {
+      margin-top: 50px;
+      text-decoration: underline;
+      color: #280080;
+      text-align: center;
+    }
   }
 
   .Box__PersonalImage {
@@ -33,7 +46,38 @@ export const MainPageContainer = styled.div`
 
     max-height: 149px;
 
-    margin-right: 30px;
+    margin-right: 10%;
+
+    @media (min-width: 430px) {
+      margin-right: 30%;
+    }
+    @media (min-width: 600px) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      margin: 20px 0;
+
+      gap: 50px;
+    }
+    figure {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+
+      height: 100%;
+
+      font-size: 14px;
+      font-weight: 400;
+      p {
+        display: none;
+
+        @media (min-width: 375px) {
+          display: flex;
+        }
+      }
+    }
 
     .SocialIcon {
       width: 25px;
@@ -55,50 +99,96 @@ export const MainPageContainer = styled.div`
     }
   }
 
-  p {
+  .Biography {
     font-weight: 500;
     margin-top: 50px;
   }
 
   .carousel {
-    height: 120px;
+    position: relative;
     background-color: #633bbc;
-    margin: 50px -15px 0 -15px;
 
+    margin: 5px -15px 0 -15px;
+
+    padding-bottom: 10px;
     ul {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
 
       width: 100%;
       height: 100%;
 
+      overflow-x: auto;
+      scroll-behavior: smooth;
+
       list-style: none;
     }
+
+    ul::-webkit-scrollbar {
+      display: none;
+    }
+
     li {
+      min-width: 100%;
+
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
 
-      width: 100%;
+      .Tech__Info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-      img {
-        width: 120px;
-        height: 100%;
-        animation: techcarousel 5s linear infinite;
-        border-radius: 100%;
-      }
-      button {
-        background-color: #633bbc;
-        .btnCarousel {
-          width: 40px;
-          height: 40px;
+        .Name__Tech {
+          margin: 10px 0 0 0;
+
+          font-size: 18px;
+          font-weight: bold;
+          color: #ffffff;
         }
       }
+
+      img {
+        margin-top: 30px;
+        width: 120px;
+        animation: ${({ pauseAnimation }) => !pauseAnimation && "techCarousel"}
+          5s linear infinite;
+        border-radius: 100%;
+      }
+    }
+
+    button {
+      align-self: center;
+      background-color: #633bbc;
+      .btnCarousel {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .btnPrevious {
+      position: absolute;
+      top: 70px;
+      left: 10px;
+    }
+    .btnNext {
+      top: 70px;
+      right: 10px;
+      position: absolute;
+    }
+    .btnControl {
+      width: 25px;
+      height: 25px;
+      top: 5px;
+      right: 10px;
+      position: absolute;
+      color: white;
     }
   }
 
-  @keyframes techcarousel {
+  @keyframes techCarousel {
     100% {
       transform: rotate(360deg);
     }
