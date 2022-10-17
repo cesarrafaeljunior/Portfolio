@@ -1,3 +1,10 @@
+import { CarouselProvider } from "../Contexts/carouselContext";
+import { RoutesMain } from "../Routes";
+
 export const App = () => {
-  return <div className="App"></div>;
+  return (
+    <CarouselProvider>
+      <RoutesMain />
+    </CarouselProvider>
+  );
 };
