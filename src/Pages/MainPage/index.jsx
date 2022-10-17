@@ -3,26 +3,30 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
+import { BsFillPauseCircleFill } from "react-icons/bs";
+import { BsFillPlayCircleFill } from "react-icons/bs";
 
 import { MainPageContainer } from "./style";
 import { techs } from "../../services/techs";
-import { useRef } from "react";
+import { useContext } from "react";
+import { CarouselContext } from "../../Contexts/carouselContext";
 
 export const MainPage = () => {
-  const carousel = useRef(null);
-
-  const handleLeftClick = (e) => {
-    e.preventDefault();
-    carousel.current.scrollLeft -= carousel.current.offsetWidth;
-  };
-
-  const handleRightClick = (e) => {
-    e.preventDefault();
-    carousel.current.scrollLeft += carousel.current.offsetWidth;
-  };
+  const {
+    carousel,
+    handleLeftClick,
+    handleRightClick,
+    pauseAnimation,
+    playAnimation,
+    isPause,
+    backgroundState,
+  } = useContext(CarouselContext);
 
   return (
-    <MainPageContainer>
+    <MainPageContainer
+      pauseAnimation={isPause}
+      backgroundState={backgroundState}
+    >
       <section className="Section__Header">
         <div className="Box__PersonalImage">
           <figure>
@@ -66,7 +70,7 @@ export const MainPage = () => {
             return (
               <li key={tech.name}>
                 <div className="Tech__Info">
-                  <img src={tech.img} alt=" React Logo" />
+                  <img src={tech.img} alt={tech.name} />
                   <p className="Name__Tech">{tech.name}</p>
                 </div>
               </li>
@@ -79,6 +83,15 @@ export const MainPage = () => {
         <button type="button" className="btnNext" onClick={handleRightClick}>
           <GrFormNext className="btnCarousel" />
         </button>
+        {isPause == true ? (
+          <button type="button" className="btnControl" onClick={playAnimation}>
+            <BsFillPlayCircleFill className="btnControl" />
+          </button>
+        ) : (
+          <button type="button" className="btnControl" onClick={pauseAnimation}>
+            <BsFillPauseCircleFill className="btnControl" />
+          </button>
+        )}
       </section>
     </MainPageContainer>
   );

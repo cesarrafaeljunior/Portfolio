@@ -153,7 +153,8 @@ export const MainPageContainer = styled.div`
       img {
         margin-top: 30px;
         width: 120px;
-        animation: techcarousel 5s linear infinite;
+        animation: ${({ pauseAnimation }) => !pauseAnimation && "techCarousel"}
+          5s linear infinite;
         border-radius: 100%;
       }
     }
@@ -177,9 +178,17 @@ export const MainPageContainer = styled.div`
       right: 10px;
       position: absolute;
     }
+    .btnControl {
+      width: 25px;
+      height: 25px;
+      top: 5px;
+      right: 10px;
+      position: absolute;
+      color: white;
+    }
   }
 
-  @keyframes techcarousel {
+  @keyframes techCarousel {
     100% {
       transform: rotate(360deg);
     }
