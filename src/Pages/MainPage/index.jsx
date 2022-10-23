@@ -74,7 +74,7 @@ export const MainPage = () => {
             );
           })}
         </ul>
-        {hideClick > 0 ? (
+        {hideClick > 0 && isPause === true ? (
           <button
             type="button"
             className="btnPrevious"
@@ -84,7 +84,7 @@ export const MainPage = () => {
           </button>
         ) : null}
 
-        {hideClick <= techs.length - 2 ? (
+        {hideClick <= techs.length - 2 && isPause === true ? (
           <button type="button" className="btnNext" onClick={handleRightClick}>
             <GrFormNext className="btnCarousel" />
           </button>

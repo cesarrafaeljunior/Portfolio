@@ -44,4 +44,9 @@ export const techs = [
     nivel: "avançado",
     img: "img/LogoTs.png",
   },
+  {
+    name: "Redux",
+    nivel: "avançado",
+    img: "img/LogoTs.png",
+  },
 ];

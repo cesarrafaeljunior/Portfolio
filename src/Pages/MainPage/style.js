@@ -13,9 +13,11 @@ export const MainPageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 50px;
 
     @media (min-width: 600px) {
       flex-direction: column;
+      gap: 0;
     }
   }
 
