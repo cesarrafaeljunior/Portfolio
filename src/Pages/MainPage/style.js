@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const MainPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   padding: 20px 15px;
   background-color: #d9d9d9;
   border-radius: 5px;
@@ -9,17 +13,17 @@ export const MainPageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    height: 149px;
+    gap: 50px;
 
     @media (min-width: 600px) {
       flex-direction: column;
+      gap: 0;
     }
   }
 
   .Section__Main {
     h2 {
-      margin-top: 50px;
+      margin-top: 30px;
       text-decoration: underline;
       color: #280080;
       text-align: center;
@@ -48,15 +52,12 @@ export const MainPageContainer = styled.div`
 
     margin-right: 10%;
 
-    @media (min-width: 430px) {
-      margin-right: 30%;
-    }
     @media (min-width: 600px) {
       flex-direction: row;
       justify-content: center;
       align-items: center;
 
-      margin: 20px 0;
+      margin: 30px 0 0 0;
 
       gap: 50px;
     }
@@ -100,17 +101,22 @@ export const MainPageContainer = styled.div`
   }
 
   .Biography {
+    text-align: center;
     font-weight: 500;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .carousel {
     position: relative;
     background-color: #633bbc;
 
-    margin: 5px -15px 0 -15px;
-
     padding-bottom: 10px;
+
+    width: 100%;
+    max-width: 800px;
+
+    margin-top: 0px;
+
     ul {
       display: flex;
       align-items: center;
@@ -135,7 +141,6 @@ export const MainPageContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-
       .Tech__Info {
         display: flex;
         flex-direction: column;
