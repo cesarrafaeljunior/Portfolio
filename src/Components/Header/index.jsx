@@ -6,6 +6,7 @@ import { MenuContext } from "../../Contexts/menuContext";
 import { Logo } from "./Logo";
 import { MenuNav } from "./MenuNav";
 import { StyledHeader } from "./style";
+import { MenuNavResponsive } from "./MenuNavResponsive";
 
 export const Header = () => {
   const { isMenuOpen, openMenu, closeMenu } = useContext(MenuContext);
@@ -13,7 +14,6 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Logo />
-
       {isMenuOpen === true ? (
         <>
           <MenuNav />
@@ -26,6 +26,7 @@ export const Header = () => {
           <CgMenuGridR className="Menu" />
         </button>
       )}
+      <MenuNavResponsive />
     </StyledHeader>
   );
 };

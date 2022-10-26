@@ -1,14 +1,11 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MenuContext } from "../../../Contexts/menuContext";
 import { ContainerNav } from "./style";
 
-export const MenuNav = () => {
-  const { animation, closeMenu } = useContext(MenuContext);
+export const MenuNavResponsive = () => {
   const navigate = useNavigate();
 
   return (
-    <ContainerNav animationName={animation}>
+    <ContainerNav>
       <nav>
         <ul>
           <li>
@@ -16,7 +13,6 @@ export const MenuNav = () => {
               onClick={(e) => {
                 e.preventDefault();
                 navigate("/about");
-                closeMenu();
               }}
             >
               Sobre mim
@@ -27,7 +23,6 @@ export const MenuNav = () => {
               onClick={(e) => {
                 e.preventDefault();
                 navigate("/experiencia");
-                closeMenu();
               }}
             >
               Experiência
@@ -38,7 +33,6 @@ export const MenuNav = () => {
               onClick={(e) => {
                 e.preventDefault();
                 // navigate("/about");
-                closeMenu();
               }}
             >
               Projetos
@@ -49,7 +43,6 @@ export const MenuNav = () => {
               onClick={(e) => {
                 e.preventDefault();
                 // navigate("/about");
-                closeMenu();
               }}
             >
               Contato
