@@ -25,7 +25,7 @@ export const StyledHeader = styled.header`
 
       color: #8b9dff;
 
-      transition: ease-in 0.3s;
+      transition: all 1.5s;
 
       &:hover {
         transform: rotate(360deg);

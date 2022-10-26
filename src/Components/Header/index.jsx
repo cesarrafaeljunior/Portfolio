@@ -16,7 +16,7 @@ export const Header = () => {
 
       {isMenuOpen === true ? (
         <>
-          <MenuNav />;
+          <MenuNav />
           <button type="button" onClick={closeMenu}>
             <AiFillCloseSquare className="Menu" />
           </button>
