@@ -22,7 +22,7 @@ export const MenuNavResponsive = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/experiencia");
+                navigate("/experience");
               }}
             >
               Experiência
@@ -32,7 +32,7 @@ export const MenuNavResponsive = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                // navigate("/about");
+                navigate("/projects");
               }}
             >
               Projetos
@@ -42,7 +42,7 @@ export const MenuNavResponsive = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                // navigate("/about");
+                navigate("/contact");
               }}
             >
               Contato

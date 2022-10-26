@@ -26,7 +26,7 @@ export const MenuNav = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/experiencia");
+                navigate("/experience");
                 closeMenu();
               }}
             >
@@ -37,7 +37,7 @@ export const MenuNav = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                // navigate("/about");
+                navigate("/projects");
                 closeMenu();
               }}
             >
@@ -48,7 +48,7 @@ export const MenuNav = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                // navigate("/about");
+                navigate("/contact");
                 closeMenu();
               }}
             >
