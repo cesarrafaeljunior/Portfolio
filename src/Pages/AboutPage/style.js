@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerAbout = styled.section`
   width: 100%;
   padding: 40px 20px;
-  background-color: white;
+  background-color: #d9d9d9;
   border-radius: 8px;
   text-align: center;
   display: flex;
@@ -14,6 +14,7 @@ export const ContainerAbout = styled.section`
     align-items: center;
     justify-content: center;
   }
+
   .Bio {
     text-align: left;
     line-height: 28px;

@@ -15,6 +15,9 @@ export const StyledHeader = styled.header`
       color: #824cfc;
     }
     color: white;
+    &:hover {
+      filter: brightness(1.2);
+    }
   }
 
   button {
@@ -29,6 +32,9 @@ export const StyledHeader = styled.header`
 
       &:hover {
         transform: rotate(360deg);
+      }
+      @media (min-width: 700px) {
+        display: none;
       }
     }
   }
