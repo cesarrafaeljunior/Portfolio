@@ -42,10 +42,10 @@ export const MenuNavResponsive = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/contact");
+                navigate("/projects");
               }}
             >
-              Contato
+              Temas
             </Link>
           </li>
         </ul>

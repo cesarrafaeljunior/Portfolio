@@ -1,24 +1,32 @@
+import { projects } from "../../services/projects";
 import { ContainerProjects } from "./style";
 
 export const ProjectsPage = () => {
   return (
     <ContainerProjects>
       <h1>Projetos</h1>
+
       <ul>
-        <li>
-          <img src="img/LogoGitHub.png" alt="Imagem do projeto" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-            suscipit perspiciatis dolores ipsa quia, explicabo ab nostrum illum
-            quod modi soluta expedita! Doloremque quisquam quo sint quam,
-            quaerat placeat numquam?
-          </p>
-          <button>Detalhes</button>
-          <div>
-            <button>Abrir projeto</button>
-            <button>Repositório</button>
-          </div>
-        </li>
+        {projects.map((project) => {
+          return (
+            <li key={project.name}>
+              <div className="ContainerImg">
+                <img src={project.img} alt={project.img} />
+              </div>
+
+              <p>{project.description}</p>
+              <button type="button">Ver descrição completa</button>
+              <div>
+                <a target="_blank" href={project.deploy} rel="noreferrer">
+                  Ver projeto
+                </a>
+                <a target="_blank" href={project.rep} rel="noreferrer">
+                  Repositório
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </ContainerProjects>
   );

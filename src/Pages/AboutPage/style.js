@@ -9,6 +9,7 @@ export const ContainerAbout = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  animation: entrance 0.9s forwards;
   @media (min-width: 700px) {
     flex-direction: row;
     align-items: center;
@@ -51,5 +52,15 @@ export const ContainerAbout = styled.section`
   h2 {
     font-size: 20px;
     color: #262626;
+  }
+  @keyframes entrance {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 `;

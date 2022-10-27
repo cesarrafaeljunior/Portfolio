@@ -48,11 +48,11 @@ export const MenuNav = () => {
             <Link
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/contact");
+                navigate("/projects");
                 closeMenu();
               }}
             >
-              Contato
+              Temas
             </Link>
           </li>
         </ul>

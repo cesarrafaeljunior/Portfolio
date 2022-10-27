@@ -17,6 +17,7 @@ export const ContainerNav = styled.div`
     list-style: none;
   }
   a {
+    transition: all 0.5s;
     justify-content: right;
     background-color: #fff;
     color: 343434;
@@ -26,7 +27,9 @@ export const ContainerNav = styled.div`
     border: solid 1px #fff;
     font-weight: bold;
     &:hover {
-      filter: brightness(0.7);
+      background-color: #824cfc;
+      border: solid 1px #824cfc;
+      color: #fff;
     }
   }
 `;

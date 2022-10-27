@@ -8,7 +8,7 @@ export const MainPageContainer = styled.div`
   padding: 20px 15px;
   background-color: #d9d9d9;
   border-radius: 5px;
-
+  animation: entrance 0.9s forwards;
   .Section__Header {
     display: flex;
     align-items: center;
@@ -95,8 +95,8 @@ export const MainPageContainer = styled.div`
     .Linkedin:hover {
       color: #1a8af1;
     }
-    .Youtube:hover {
-      color: #ff4040;
+    .Instagram:hover {
+      color: #ffad62;
     }
   }
 
@@ -196,6 +196,16 @@ export const MainPageContainer = styled.div`
   @keyframes techCarousel {
     100% {
       transform: rotate(360deg);
+    }
+  }
+  @keyframes entrance {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 `;

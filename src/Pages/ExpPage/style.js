@@ -8,6 +8,7 @@ export const ContainerExpPage = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  animation: entranceExp 0.9s forwards;
   @media (min-width: 700px) {
     flex-direction: row;
     align-items: center;
@@ -54,6 +55,15 @@ export const ContainerExpPage = styled.section`
       min-height: 500px;
     }
   }
-
+  @keyframes entranceExp {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
   background-color: #d9d9d9;
 `;
