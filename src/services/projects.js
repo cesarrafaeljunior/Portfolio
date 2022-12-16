@@ -1,9 +1,17 @@
 export const projects = [
   {
+    title: "Port Geek",
+    img: "img/PortGeek.png",
+    description:
+      "Aplicação desenvolvida em grupo, focada em novos desenvolvedores, tem como objetivo ajudar um desenvolvedor inciante a montar o seu portfólio, baseando-se nos Layouts disponíveis na aplicação.",
+    deploy: "https://port-geek-main-kencpy9hc-cesarrafaeljunior.vercel.app/",
+    rep: "https://github.com/cesarrafaeljunior/port-geek/tree/main",
+  },
+  {
     title: "Finances Control",
     img: "img/ControlFinances.png",
     description:
-      "Este aplicativo tem como objetivo, judar o usuário a cotrolar suas finanças, cadastrando entradas e saídas de dinheiro, com a soma e o desconto acontecendo em tempo real...",
+      "Este aplicativo tem como objetivo, ajudar o usuário a controlar suas finanças, cadastrando entradas e saídas de dinheiro, com a soma e o desconto acontecendo em tempo real...",
     deploy: "https://react-entrega-s1-nu-kenzie-cesarrafaeljunior.vercel.app/",
     rep: "https://github.com/cesarrafaeljunior/FinancesControl",
   },

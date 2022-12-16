@@ -44,17 +44,6 @@ export const MenuNav = () => {
               Projetos
             </Link>
           </li>
-          <li>
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/projects");
-                closeMenu();
-              }}
-            >
-              Temas
-            </Link>
-          </li>
         </ul>
       </nav>
     </ContainerNav>

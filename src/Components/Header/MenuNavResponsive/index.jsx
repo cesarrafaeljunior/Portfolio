@@ -38,16 +38,6 @@ export const MenuNavResponsive = () => {
               Projetos
             </Link>
           </li>
-          <li>
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/projects");
-              }}
-            >
-              Temas
-            </Link>
-          </li>
         </ul>
       </nav>
     </ContainerNav>
