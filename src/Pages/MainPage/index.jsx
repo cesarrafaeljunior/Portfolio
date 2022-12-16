@@ -1,6 +1,6 @@
 import { BsGithub } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
-import { BsYoutube } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
 import { BsFillPauseCircleFill } from "react-icons/bs";
@@ -32,7 +32,11 @@ export const MainPage = () => {
         </div>
         <div className="Box__Social__Networking">
           <figure>
-            <a href="https://github.com/cesarrafaeljunior" target="-blank">
+            <a
+              href="https://github.com/cesarrafaeljunior"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsGithub className="GitHub SocialIcon" />
             </a>
             <p>Github</p>
@@ -40,17 +44,22 @@ export const MainPage = () => {
           <figure>
             <a
               href="https://www.linkedin.com/in/cesarrafaeldevstudent/"
-              target="-blank"
+              target="_blank"
+              rel="noreferrer"
             >
               <BsLinkedin className="Linkedin SocialIcon" />
             </a>
             <p>Linkedin</p>
           </figure>
           <figure>
-            <a href="https://www.youtube.com/" target="-blank">
-              <BsYoutube className="Youtube SocialIcon" />
+            <a
+              href="https://www.instagram.com/cesarrafaeljunior/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsInstagram className="Instagram SocialIcon" />
             </a>
-            <p>Youtube</p>
+            <p>Instagram</p>
           </figure>
         </div>
       </section>
@@ -74,7 +83,7 @@ export const MainPage = () => {
             );
           })}
         </ul>
-        {hideClick > 0 ? (
+        {hideClick > 0 && isPause === true ? (
           <button
             type="button"
             className="btnPrevious"
@@ -84,7 +93,7 @@ export const MainPage = () => {
           </button>
         ) : null}
 
-        {hideClick <= techs.length - 2 ? (
+        {hideClick <= techs.length - 2 && isPause === true ? (
           <button type="button" className="btnNext" onClick={handleRightClick}>
             <GrFormNext className="btnCarousel" />
           </button>
